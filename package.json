@@ -1,7 +1,6 @@
 {
   "name": "discord-bot-wrapper",
   "version": "0.1.0",
-  "private": true,
   "author": {
     "name": "Nelson Oliveira",
     "email": "nelspiketx@gmail.com"
