@@ -1,0 +1,21 @@
+{
+  "name": "discord-bot-wrapper",
+  "version": "0.1.0",
+  "private": true,
+  "author": {
+    "name": "Nelson Oliveira",
+    "email": "nelspiketx@gmail.com"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "dependencies": {
+    "discord.js": "^9.3.0",
+    "lodash": "^4.16.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
