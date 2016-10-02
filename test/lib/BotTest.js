@@ -74,7 +74,7 @@ describe('Bot Class', () => {
     });
   });
 
-  it('should apply the name to the boton signin', done => {
+  it('should apply the name to the bot on signin', done => {
     const bot = new Bot({
       name: 'Not Cartman',
       auth: {
@@ -84,6 +84,39 @@ describe('Bot Class', () => {
 
     bot.signin(true).then(success => {
       expect(bot.getUser().username).to.equal('Not Cartman');
+      done();
+    });
+  });
+
+  it('should change the status of the bot', done => {
+    const bot = new Bot({
+      name: 'Stan Marsh',
+      status: 'online',
+      auth: {
+        token: process.env.STAN_MARSH_TOKEN,
+      },
+    });
+
+    bot.signin().then(success => {
+      expect(bot.getUser().status).to.equal('online');
+      done();
+    });
+  });
+
+  it('should change the game of the bot', done => {
+    const bot = new Bot({
+      name: 'Stan Marsh',
+      status: 'online',
+      game: 'South Park',
+      auth: {
+        token: process.env.STAN_MARSH_TOKEN,
+      },
+    });
+
+    bot.signin().then(success => {
+      expect(bot.getUser().game).to.deep.equal({
+        name: 'South Park',
+      });
       done();
     });
   });
