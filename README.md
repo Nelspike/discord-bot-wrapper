@@ -6,13 +6,14 @@ Welcome to Discord.js Bot wrapper! This tiny library is just basically a wrapper
 
 As any other npm package, this one is easily added to your project:
 
-```npm install --save discord-bot-wrapper```
+`npm install --save discord-bot-wrapper`
 
 ## Usage
 
 It is also simple to use! Just initialise your bot as such:
 
-```const bot = require('discord-bot-wrapper')({
+```javascript
+const bot = require('discord-bot-wrapper')({
   name: 'My bot',
   auth: {
     token: 'mytoken',
