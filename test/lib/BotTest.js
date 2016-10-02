@@ -60,22 +60,6 @@ describe('Bot Class', () => {
 
   it('should apply the name to the bot', done => {
     const bot = new Bot({
-      name: 'Stan Marsh',
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
-    });
-
-    bot.signin().then(success => {
-      bot.setName('Not Cartman').then(() => {
-        expect(bot.getUser().username).to.equal('Not Cartman');
-        done();
-      });
-    });
-  });
-
-  it('should apply the name to the bot on signin', done => {
-    const bot = new Bot({
       name: 'Not Cartman',
       auth: {
         token: process.env.STAN_MARSH_TOKEN,
