@@ -1,6 +1,11 @@
+# Ignore generated documentation files
+docs
+
+# Ignore npm specific folders/files
 node_modules
 npm-debug.log
 
+# Ignore editor files
 *~
 *.*~
 *.swp
