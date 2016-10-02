@@ -24,4 +24,6 @@ module.exports = options => {
   });
 
   bot.login();
-}
+
+  return bot;
+};
