@@ -1,6 +1,4 @@
-'use strict';
-
-const expect = require('chai').expect;
+const { expect } = require('chai');
 
 const Bot = require('../../lib/Bot');
 
@@ -21,27 +19,7 @@ describe('Bot Class', () => {
       });
     }
 
-    const withoutPassword = () => {
-      new Bot({
-        name: 'Test bot',
-        auth : {
-          email: 'some@email.com',
-        },
-      });
-    }
-
-    const withoutEmail = () => {
-      new Bot({
-        name: 'Test bot',
-        auth: {
-          password: 'random-pw',
-        },
-      });
-    }
-
     expect(withoutAnything).to.throw(Error);
-    expect(withoutPassword).to.throw(Error);
-    expect(withoutEmail).to.throw(Error);
   });
 
   it('should log the bot in', done => {
@@ -82,7 +60,7 @@ describe('Bot Class', () => {
     });
 
     bot.signin().then(success => {
-      expect(bot.getUser().status).to.equal('online');
+      expect(bot.getStatus()).to.equal('online');
       done();
     });
   });
@@ -98,9 +76,8 @@ describe('Bot Class', () => {
     });
 
     bot.signin().then(success => {
-      expect(bot.getUser().game).to.deep.equal({
-        name: 'South Park',
-      });
+      const game = bot.getGame();
+      expect(game.name).to.equal('South Park');
       done();
     });
   });
