@@ -82,6 +82,44 @@ describe('Bot Class', () => {
     });
   });
 
+  it('should send a message to a channel', done => {
+    const bot = new Bot({
+      name: 'Stan Marsh',
+      auth: {
+        token: process.env.STAN_MARSH_TOKEN,
+      },
+    });
+
+    bot.signin().then(success => {
+      bot.sendMessageToChannel(
+        '231897815301750785',
+        'Just testing the direct channel message!'
+      ).then(success => {
+        expect(success).to.equal(true);
+        done();
+      });
+    });
+  });
+
+  it('should send a message to a user', done => {
+    const bot = new Bot({
+      name: 'Stan Marsh',
+      auth: {
+        token: process.env.STAN_MARSH_TOKEN,
+      },
+    });
+
+    bot.signin().then(success => {
+      bot.sendMessageToUser(
+        '168447562376806401',
+        'Just testing the direct user message!'
+      ).then(success => {
+        expect(success).to.equal(true);
+        done();
+      });
+    });
+  });
+
   it('should broadcast a message to all channels', done => {
     const bot = new Bot({
       name: 'Stan Marsh',
@@ -95,6 +133,29 @@ describe('Bot Class', () => {
         expect(success).to.equal(true);
         done();
       });
+    });
+  });
+
+  it('should receive all arguments to an event', done => {
+    const bot = new Bot({
+      name: 'Stan Marsh',
+      auth: {
+        token: process.env.STAN_MARSH_TOKEN,
+      },
+
+    });
+
+    bot.setEvent('warn', (bot, arg1, arg2) => {
+      expect(arg1).to.be.ok;
+      expect(arg2).to.be.ok;
+
+      expect(arg1).to.equal('Argument 1');
+      expect(arg2).to.equal('Argument 2');
+      done();
+    });
+
+    bot.signin().then(success => {
+      bot.emit('warn', 'Argument 1', 'Argument 2');
     });
   });
 });
