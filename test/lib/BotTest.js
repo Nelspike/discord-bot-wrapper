@@ -6,9 +6,7 @@ describe('Bot Class', () => {
   it('should initiate with the correct parameters', () => {
     new Bot({
       name: 'Test bot',
-      auth: {
-        token: 'Some token',
-      },
+      token: 'Some token',
     });
   });
 
@@ -25,9 +23,7 @@ describe('Bot Class', () => {
   it('should log the bot in', done => {
     const bot = new Bot({
       name: 'Stan Marsh',
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
+      token: process.env.STAN_MARSH_TOKEN,
     });
 
     bot.signin().then(success => {
@@ -39,9 +35,7 @@ describe('Bot Class', () => {
   it('should apply the name to the bot', done => {
     const bot = new Bot({
       name: 'Not Cartman',
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
+      token: process.env.STAN_MARSH_TOKEN,
     });
 
     bot.signin(true).then(success => {
@@ -54,9 +48,7 @@ describe('Bot Class', () => {
     const bot = new Bot({
       name: 'Stan Marsh',
       status: 'online',
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
+      token: process.env.STAN_MARSH_TOKEN,
     });
 
     bot.signin().then(success => {
@@ -70,9 +62,7 @@ describe('Bot Class', () => {
       name: 'Stan Marsh',
       status: 'online',
       game: 'South Park',
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
+      token: process.env.STAN_MARSH_TOKEN,
     });
 
     bot.signin().then(success => {
@@ -85,9 +75,7 @@ describe('Bot Class', () => {
   it('should send a message to a channel', done => {
     const bot = new Bot({
       name: 'Stan Marsh',
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
+      token: process.env.STAN_MARSH_TOKEN,
     });
 
     bot.signin().then(success => {
@@ -104,9 +92,7 @@ describe('Bot Class', () => {
   it('should send a message to a user', done => {
     const bot = new Bot({
       name: 'Stan Marsh',
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
+      token: process.env.STAN_MARSH_TOKEN,
     });
 
     bot.signin().then(success => {
@@ -123,9 +109,7 @@ describe('Bot Class', () => {
   it('should broadcast a message to all channels', done => {
     const bot = new Bot({
       name: 'Stan Marsh',
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
+      token: process.env.STAN_MARSH_TOKEN,
     });
 
     bot.signin().then(success => {
@@ -139,10 +123,7 @@ describe('Bot Class', () => {
   it('should receive all arguments to an event', done => {
     const bot = new Bot({
       name: 'Stan Marsh',
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
-
+      token: process.env.STAN_MARSH_TOKEN,
     });
 
     bot.setEvent('warn', (bot, arg1, arg2) => {

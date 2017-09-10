@@ -7,14 +7,11 @@ describe('init', () => {
   it('should initiate the bot accordingly', done => {
     const bot = init({
       name: 'Stan Marsh',
-      instantLogin: true,
-      auth: {
-        token: process.env.STAN_MARSH_TOKEN,
-      },
+      token: process.env.STAN_MARSH_TOKEN,
       events: {
         ready(bot) {
-          bot.broadcastMessage('I just logged in, \'sup lads!');
-        },
+          bot.sendMessageToChannel('231897815301750785', 'I just logged in, \'sup lads!');
+        }
       }
     }).then(() => {
       done();
